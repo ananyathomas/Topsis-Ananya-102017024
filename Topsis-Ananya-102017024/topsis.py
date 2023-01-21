@@ -55,7 +55,7 @@ class Topsis:
   def normalize(self,calc):
     c = len(calc.axes[1])
     cols = calc.columns
-    calc[cols] = calc[cols] /calc[cols].abs().max()
+    calc = calc / np.sqrt(np.sum(np.square(calc),axis=0))
   
   # Calculating weighted normalized decision matrix
     for i in self.weight:
